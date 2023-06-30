@@ -1,0 +1,65 @@
+###############################################################################
+# Note: If you are updating this file, please update .dockerignore as necessary
+###############################################################################
+
+# IDEs and Editors
+.history
+.idea
+atlassian-ide-plugin.xml
+.project
+.redcar
+nbproject
+tags
+*.swp
+*.swo
+*.swn
+*~
+*.sass-cache
+coverage
+coverage.data
+coverage.info
+.buildpath
+.settings
+.loadpath
+.autotest
+dir_conflicts.prej
+partial_dependencies.png
+rr.tmproj
+package-lock.json
+.rakeTasks
+.generators
+*sublime*
+*.sublime-workspace
+.eslintrc
+.rspec_status
+java/build
+java/.gradle
+python/venv
+python/__pycache__
+
+# Dotenv config
+.env\.*
+
+# Ignored app paths
+log
+db/development_structure.sql
+db/test_structure.sql
+tmp/*
+tmp/**/*
+irb.log
+
+# OS X
+.DS_Store
+
+# Ruby Version Managers
+.rvmrc
+.rbenv-version
+.ruby-version
+.ruby-gemset
+.bundle
+dump.rdb
+.rubocop-http*
+.irb_history
+
+# Javascript
+node_modules
