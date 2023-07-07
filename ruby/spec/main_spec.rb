@@ -1,5 +1,4 @@
-require 'rspec'
-require_relative '../main'
+require "spec_helper"
 
 describe 'Inventory' do
   def add_item_and_update_price(name, sell_by, price)
