@@ -1,4 +1,6 @@
-require "spec_helper"
+# frozen_string_literal: true
+
+require 'spec_helper'
 
 describe 'Inventory' do
   def add_item_and_update_price(name, sell_by, price)
