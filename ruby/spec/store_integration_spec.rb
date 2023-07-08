@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'Gilded Rose store' do
   context 'A mixed inventory of items' do
-    let(:items) {
+    let(:items) do
       [
         {
           item: Item.new('Normal Item', 10, 20, 'Apple'),
@@ -24,11 +25,11 @@ describe 'Gilded Rose store' do
         {
           item: Item.new('Materials', 10, 20, 'Copper Wire'),
           becomes: { sell_by: 9, price: 19 }
-        },
+        }
       ]
-    }
+    end
     let(:inventory) { Inventory.new(items.map { |item| item[:item] }) }
-    before{ inventory.update_price }
+    before { inventory.update_price }
 
     it 'updated prices and sell_by for each item' do
       items.each do |test_case|

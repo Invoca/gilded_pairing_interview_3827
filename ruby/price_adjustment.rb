@@ -63,11 +63,11 @@ module PriceAdjustment
     end
 
     def add_appreciation_strategy(price_increase = 1, applicable_sell_by_date: nil)
-      pricing_strategies << Strategy.new(price_increase.abs, applicable_sell_by_date: applicable_sell_by_date)
+      pricing_strategies << Strategy.new(price_increase.abs, applicable_sell_by_date:)
     end
 
     def add_depreciation_strategy(price_decrease = 1, applicable_sell_by_date: nil)
-      pricing_strategies << Strategy.new(price_decrease.abs * -1, applicable_sell_by_date: applicable_sell_by_date)
+      pricing_strategies << Strategy.new(price_decrease.abs * -1, applicable_sell_by_date:)
     end
   end
 end

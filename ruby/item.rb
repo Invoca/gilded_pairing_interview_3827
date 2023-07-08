@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './price_adjustment'
 require_relative './expiration'
 
@@ -10,7 +12,7 @@ module Item
     }.fetch(asset_type, NormalItem)
   end
 
-  def self.new(asset_type, sell_by, price, name=nil)
+  def self.new(asset_type, sell_by, price, name = nil)
     class_for(asset_type).new(sell_by, price, name)
   end
 
