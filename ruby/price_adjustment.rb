@@ -1,9 +1,19 @@
 # frozen_string_literal: true
 
+##
+# This module provides a system to adjust the price of an item with respect to
+# defined pricing strategies, which can depend on item's sell_by date.
+# The strategies can either increase (appreciation) or decrease (depreciation) the price.
+# It also provides a system to set a maximum and minimum price for the items.
+#
 module PriceAdjustment
   MAX_PRICE = 50
   MIN_PRICE = 0
 
+  ##
+  # Represents a single price adjustment strategy. It encapsulates the price change
+  # value and potentially a date that it's applicable up to.
+  #
   class Strategy
     attr_reader :price_change, :applicable_sell_by_date
 
@@ -41,6 +51,9 @@ module PriceAdjustment
     self.class.minimum_price
   end
 
+  ##
+  # This module provides class level methods for managing pricing strategies, max and min prices.
+  #
   module ClassMethods
     def pricing_strategies
       @pricing_strategies ||= []

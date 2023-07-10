@@ -3,9 +3,9 @@
 require 'spec_helper'
 
 describe Item do
-  context '#to_s' do
+  describe '#to_s' do
     it 'prints the string equivalent of the item' do
-      item = Item.new('TestItem', 10, 20, 'TestItem')
+      item = described_class.new('TestItem', 10, 20, 'TestItem')
 
       expect(item.to_s).to eq('NormalItem, 10, 20, TestItem')
     end

@@ -3,8 +3,8 @@
 require 'spec_helper'
 
 describe 'Inventory' do
-  context '#update_price' do
-    let(:item) { double('item') }
+  describe '#update_price' do
+    let(:item) { instance_double(Item::Base) }
     let(:inventory) { Inventory.new([item]) }
 
     it 'calls update_item_for_day on each item in the inventory' do

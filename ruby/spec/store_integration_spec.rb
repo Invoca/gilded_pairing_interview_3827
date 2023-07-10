@@ -2,8 +2,8 @@
 
 require 'spec_helper'
 
-describe 'Gilded Rose store' do
-  context 'A mixed inventory of items' do
+describe Inventory do
+  context 'when the Gilded Rose store has a mixed inventory of items' do
     let(:items) do
       [
         {
@@ -28,15 +28,23 @@ describe 'Gilded Rose store' do
         }
       ]
     end
-    let(:inventory) { Inventory.new(items.map { |item| item[:item] }) }
+    let(:inventory) { described_class.new(items.map { |item| item[:item] }) }
+
     before { inventory.update_price }
 
-    it 'updated prices and sell_by for each item' do
+    it 'updated prices for each item' do
+      items.each do |test_case|
+        item = test_case[:item]
+
+        expect(item.price).to eq(test_case[:becomes][:price])
+      end
+    end
+
+    it 'updated sell_by for each item' do
       items.each do |test_case|
         item = test_case[:item]
 
         expect(item.sell_by).to eq(test_case[:becomes][:sell_by])
-        expect(item.price).to eq(test_case[:becomes][:price])
       end
     end
   end

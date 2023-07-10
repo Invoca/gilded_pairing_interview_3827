@@ -3,6 +3,11 @@
 require_relative './price_adjustment'
 require_relative './expiration'
 
+##
+# This module provides a factory pattern for creating different types of items.
+# It defines the Base class from which specific item types inherit. Each item type
+# includes the PriceAdjustment and Expiration modules, and can be further customized.
+# 
 module Item
   def self.class_for(asset_type)
     {
@@ -16,6 +21,10 @@ module Item
     class_for(asset_type).new(sell_by, price, name)
   end
 
+  ##
+  # Base class for items. It includes functionality from the PriceAdjustment and Expiration modules.
+  # The Base class can be subclassed to create specific item types.
+  #
   class Base
     include PriceAdjustment
     include Expiration
@@ -57,16 +66,26 @@ module Item
     end
   end
 
+  ##
+  # NormalItem is a type of item that depreciates in price over time.
+  #
   class NormalItem < Base
     add_depreciation_strategy
     add_depreciation_strategy applicable_sell_by_date: 0
   end
 
+  ##
+  # FineArt is a type of item that appreciates in price over time.
+  #
   class FineArt < Base
     add_appreciation_strategy
     add_appreciation_strategy applicable_sell_by_date: 0
   end
 
+  ##
+  # ConcertTickets is a type of item that appreciates in price as the sell-by date approaches,
+  # but becomes worthless after the sell-by date.
+  #
   class ConcertTickets < Base
     add_appreciation_strategy
     add_appreciation_strategy applicable_sell_by_date: 10
@@ -74,6 +93,9 @@ module Item
     add_depreciation_strategy Float::INFINITY, applicable_sell_by_date: 0
   end
 
+  ##
+  # GoldCoins is a type of item that does not expire and always retains a fixed price.
+  #
   class GoldCoins < Base
     does_not_expire
     has_minimum_price 80
