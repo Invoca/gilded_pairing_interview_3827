@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rspec'
-require_relative '../main'
+require "rspec"
+require_relative "../main"
 
-require 'simplecov'
+require "simplecov"
 SimpleCov.start
 
 def item_should(description, &test_case)

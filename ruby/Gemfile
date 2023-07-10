@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-ruby '3.2.2'
+ruby "3.2.2"
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 group :test, :development do
-  gem 'rspec', '~> 3.0'
-  gem 'rubocop'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
-  gem 'simplecov', '~> 0.21'
+  gem "rspec", "~> 3.0"
+  gem "rubocop"
+  gem "rubocop-performance"
+  gem "rubocop-rails"
+  gem "rubocop-rspec"
+  gem "simplecov", "~> 0.21"
 end

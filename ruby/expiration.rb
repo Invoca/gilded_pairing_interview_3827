@@ -4,7 +4,7 @@
 # This module provides a system to manage and query whether an item expires.
 # By default, items are assumed to expire unless explicitly set otherwise.
 # It provides class-level methods to define whether an item type expires.
-# 
+#
 # Once included in a class, it gives instances of that class the ability to check
 # if they expire by calling the instance method `expires?`.
 #

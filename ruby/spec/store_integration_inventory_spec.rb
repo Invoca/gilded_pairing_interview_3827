@@ -1,29 +1,29 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 describe Inventory do
-  context 'when the Gilded Rose store has a mixed inventory of items' do
+  context "when the Gilded Rose store has a mixed inventory of items" do
     let(:items) do
       [
         {
-          item: Item.new('Normal Item', 10, 20, 'Apple'),
+          item: Item.new("Normal Item", 10, 20, "Apple"),
           becomes: { sell_by: 9, price: 19 }
         },
         {
-          item: Item.new('Fine Art', 10, 20, 'Mona Lisa'),
+          item: Item.new("Fine Art", 10, 20, "Mona Lisa"),
           becomes: { sell_by: 9, price: 21 }
         },
         {
-          item: Item.new('Concert Tickets', 9, 20, 'Nickelback'),
+          item: Item.new("Concert Tickets", 9, 20, "Nickelback"),
           becomes: { sell_by: 8, price: 22 }
         },
         {
-          item: Item.new('Gold Coins', 10, 80, 'Spanish Doubloons'),
+          item: Item.new("Gold Coins", 10, 80, "Spanish Doubloons"),
           becomes: { sell_by: 10, price: 80 }
         },
         {
-          item: Item.new('Materials', 10, 20, 'Copper Wire'),
+          item: Item.new("Materials", 10, 20, "Copper Wire"),
           becomes: { sell_by: 9, price: 19 }
         }
       ]
@@ -32,7 +32,7 @@ describe Inventory do
 
     before { inventory.update_price }
 
-    it 'updated prices for each item' do
+    it "updated prices for each item" do
       items.each do |test_case|
         item = test_case[:item]
 
@@ -40,7 +40,7 @@ describe Inventory do
       end
     end
 
-    it 'updated sell_by for each item' do
+    it "updated sell_by for each item" do
       items.each do |test_case|
         item = test_case[:item]
 

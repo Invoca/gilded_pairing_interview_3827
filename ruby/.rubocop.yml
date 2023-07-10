@@ -1,22 +1,59 @@
 AllCops:
-  TargetRubyVersion: 3.2.2
+  NewCops: enable
+  TargetRubyVersion: 3.2
   Exclude:
-    - db/migrate/**/*
-    - db/schema.rb
-    - config/**/*
-    - script/**/*
-    - bin/**/*
-    - test/**/*
-    - app/admin/**/*
-    - app/channels/**/*
-    - app/jobs/**/*
-    - node_modules/**/*
-    - Gemfile
-    - Rakefile
-    - config.ru
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
 
 require:
   - rubocop-rspec
 
+# The cop department Lint is for things that will become errors in Ruby 3.
+# These cops are extremely important and you should try to fix all the offenses
+# reported by them.
+Lint:
+  Enabled: true
+
 RSpec/EmptyExampleGroup:
   Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 6
+
+Metrics/PerceivedComplexity:
+  Max: 7
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%': '()'
+    '%i': '()'
+    '%q': '()'
+    '%Q': '()'
+    '%r': '{}'
+    '%s': '()'
+    '%w': '()'
+    '%W': '()'
+    '%x': '()'

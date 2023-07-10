@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-require_relative './price_adjustment'
-require_relative './expiration'
+require_relative "price_adjustment"
+require_relative "expiration"
 
 ##
 # This module provides a factory pattern for creating different types of items.
 # It defines the Base class from which specific item types inherit. Each item type
 # includes the PriceAdjustment and Expiration modules, and can be further customized.
-# 
+#
 module Item
   def self.class_for(asset_type)
     {
-      'Fine Art' => FineArt,
-      'Concert Tickets' => ConcertTickets,
-      'Gold Coins' => GoldCoins
+      "Fine Art" => FineArt,
+      "Concert Tickets" => ConcertTickets,
+      "Gold Coins" => GoldCoins
     }.fetch(asset_type, NormalItem)
   end
 
@@ -44,13 +44,13 @@ module Item
     end
 
     def to_s
-      [asset_type, @sell_by, @price, @name].compact.join(', ')
+      [asset_type, @sell_by, @price, @name].compact.join(", ")
     end
 
     private
 
     def asset_type
-      self.class.name.split('::').last
+      self.class.name.split("::").last
     end
 
     def update_sell_by
