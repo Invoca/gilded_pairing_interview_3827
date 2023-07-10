@@ -62,7 +62,7 @@ module Item
     end
 
     def ensure_price_range
-      @price = [minimum_price, [maximum_price, @price].min].max
+      @price = @price.clamp(minimum_price, maximum_price)
     end
   end
 
